@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
-import { RouterLink, RouterOutlet } from '@angular/router';
-import { AfterViewInit } from '@angular/core';
+import { RouterLink} from '@angular/router';
 import { MoviesListComponent } from '../movies-list/movies-list.component';
 
 @Component({

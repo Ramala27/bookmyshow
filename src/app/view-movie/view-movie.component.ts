@@ -1,16 +1,27 @@
-import { Component, OnInit } from '@angular/core';
-import { RouterLink } from '@angular/router';
-
+import { CommonModule } from '@angular/common';
+import { Component} from '@angular/core';
+import { FormsModule } from '@angular/forms';
+import { ActivatedRoute, RouterLink } from '@angular/router';
 
 @Component({
-  selector: 'app-movies-list',
+  selector: 'app-view-movie',
   standalone: true,
-  imports: [RouterLink],
-  templateUrl: './movies-list.component.html',
-  styleUrl: './movies-list.component.css'
+  imports: [RouterLink,CommonModule,FormsModule],
+  templateUrl: './view-movie.component.html',
+  styleUrl: './view-movie.component.css'
 })
-export class MoviesListComponent {
 
+export class ViewMovieComponent{
+
+
+movieName!:string;
+movie: any;
+
+constructor(private route:ActivatedRoute){
+   
+this.movieName = this.route.snapshot.params["id"];
+this.movie = this.movies.find(obj=> obj.title == this.movieName);
+}
 
   movies = [
     {
@@ -49,5 +60,7 @@ export class MoviesListComponent {
       description:"Action/Drama/Thriller"
     }
   ]
+  
 } 
 
+  

@@ -1,16 +1,27 @@
+
 <div class="container-fluid">
     <h1>Movies</h1>
-    <div class="row">
+
+    
+     <div class="row">
+
+      @for (movie of movies; track movies) {
+
+     
     <div class="card col-3 movie-card">
-        <img src="https://assets-in.bmscdn.com/discovery-catalog/events/tr:w-400,h-600,bg-CCCCCC:w-400.0,h-660.0,cm-pad_resize,bg-000000,fo-top:l-image,i-discovery-catalog@@icons@@star-icon-202203010609.png,lx-24,ly-615,w-29,l-end:l-text,ie-OC40LzEwICAxMDAuNEsgVm90ZXM%3D,fs-29,co-FFFFFF,ly-612,lx-70,pa-8_0_0_0,l-end/et00079092-wzzsfeaaxh-portrait.jpg" class="card-img-top" alt="..." height="350px">
+      
+        <img src="{{movie.imgUrl}}">
         <div class="card-body">
-          <h5 class="card-title">Tumbbad</h5>
-          <p class="card-text">Fantasy/Horror/Period</p>
-          <a href="#" class="btn btn-primary">View</a>
+          <h5 class="card-title">{{movie.title}}</h5>
+          <p class="card-text">{{movie.description}}</p>
+          <a routerLink="{{movie.title}}" class="btn btn-primary">View</a>
         </div>
       </div>
-       
-      <div class="card col-3 movie-card">
+    
+    }
+
+
+      <!-- <div class="card col-3 movie-card">
         <img src="https://assets-in.bmscdn.com/discovery-catalog/events/tr:w-400,h-600,bg-CCCCCC:w-400.0,h-660.0,cm-pad_resize,bg-000000,fo-top:l-image,i-discovery-catalog@@icons@@like_202006280402.png,lx-24,ly-617,w-29,l-end:l-text,ie-MTMuN0sgTGlrZXM%3D,fs-29,co-FFFFFF,ly-612,lx-70,pa-8_0_0_0,l-end/et00405427-jtaxncpkny-portrait.jpg" alt="..." height="350px">
         <div class="card-body">
           <h5 class="card-title">Meiyazhagan</h5>
@@ -62,12 +73,12 @@
           <p class="card-text">Action/Drama/Thriller</p>
           <a href="#" class="btn btn-primary">View</a>
         </div>
-      </div>
+      </div> -->
 
 
-</div>      
+      
       
     
-
+ 
 
 

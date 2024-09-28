@@ -1,0 +1,29 @@
+    <div class="container-fluid">
+        
+    <h1>Movies - {{movieName}}</h1>
+
+    <div class="row">
+
+        @if(movie) {
+  
+       
+      <div class="card col-3 movie-card">
+        
+          <img src="{{movie.imgUrl}}">
+
+          <div class="card-body">
+       
+            <h5 class="card-title">{{movie.title}}</h5>
+       
+            <p class="card-text">{{movie.description}}</p>
+       
+            <a routerLink = "{{movie.title}}" class="btn btn-primary">Book Ticket</a><br><br>
+
+            <a routerLink="#" class="btn btn-primary" routerLink="/home">Back home</a>
+        </div>
+        </div>
+    
+}   
+
+    </div>
+    </div>

@@ -1,19 +1,13 @@
-/* You can add global styles to this file, and also import other style files */
-
-
-h1{
-    color: rgb(240, 135, 153);
-}
 .movie-card{
     align-items: center;
     width: 18rem;
     padding: 10px;
     margin: 10px;
-    height: 500px;
+    height: 580px;
 }
 
 .container-fluid  img{
-    height: 350px; 
+    height: 380px; 
     width: 15rem;
      padding-top: 5px;
     

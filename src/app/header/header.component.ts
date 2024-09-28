@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { RouterLink, RouterOutlet } from '@angular/router';
-import { MoviesListComponent } from '../movies-list/movies-list.component';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-header',
