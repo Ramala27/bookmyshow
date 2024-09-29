@@ -1,14 +1,14 @@
 .movie-card{
     align-items: center;
-    width: 18rem;
+    width: 20rem;
     padding: 10px;
     margin: 10px;
     height: 580px;
 }
 
 .container-fluid  img{
-    height: 380px; 
-    width: 15rem;
+    height: 400px; 
      padding-top: 5px;
+     width: 12rem;
     
 }

@@ -1,13 +1,13 @@
     <div class="container-fluid">
         
     <h1>Movies - {{movieName}}</h1>
-
+   
     <div class="row">
 
         @if(movie) {
   
        
-      <div class="card col-3 movie-card">
+      <div class="card col-3 movie-card1">
         
           <img src="{{movie.imgUrl}}">
 
@@ -15,8 +15,13 @@
        
             <h5 class="card-title">{{movie.title}}</h5>
        
-            <p class="card-text">{{movie.description}}</p>
-       
+            <span class="badge text-bg-danger">{{movie.description}}</span><br><br>
+
+            <span class="badge text-bg-secondary">{{movie.language}}</span>&nbsp;
+            
+            <span class="badge text-bg-success">{{movie.price | currency : 'INR'}}</span><br><br>
+                       
+                   
             <a routerLink = "{{movie.title}}" class="btn btn-primary">Book Ticket</a><br><br>
 
             <a routerLink="#" class="btn btn-primary" routerLink="/home">Back home</a>
@@ -27,3 +32,4 @@
 
     </div>
     </div>
+

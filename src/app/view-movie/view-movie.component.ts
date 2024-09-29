@@ -1,7 +1,8 @@
 import { CommonModule } from '@angular/common';
-import { Component} from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { ActivatedRoute, RouterLink } from '@angular/router';
+import { MovieService } from '../movie.service';
 
 @Component({
   selector: 'app-view-movie',
@@ -11,18 +12,25 @@ import { ActivatedRoute, RouterLink } from '@angular/router';
   styleUrl: './view-movie.component.css'
 })
 
-export class ViewMovieComponent{
+export class ViewMovieComponent implements OnInit{
 
 
 movieName!:string;
 movie: any;
 
-constructor(private route:ActivatedRoute){
+constructor(private route:ActivatedRoute, private movieservice:MovieService ){
    
 this.movieName = this.route.snapshot.params["id"];
-this.movie = this.movies.find(obj=> obj.title == this.movieName);
-}
 
+}
+  ngOnInit(): void {
+    // this.movie = this.movies.find(obj=> obj.title == this.movieName); 
+
+    this.movie =this.movieservice.getMovieDetails(this.movieName);
+  }
+
+
+// Data
   movies = [
     {
       title:"Tumbbad",

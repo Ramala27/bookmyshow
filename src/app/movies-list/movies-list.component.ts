@@ -1,53 +1,74 @@
+import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { RouterLink } from '@angular/router';
+import { MovieService } from '../movie.service';
+import { FormsModule } from '@angular/forms';
 
 
 @Component({
   selector: 'app-movies-list',
   standalone: true,
-  imports: [RouterLink],
+  imports: [RouterLink,CommonModule,FormsModule],
   templateUrl: './movies-list.component.html',
   styleUrl: './movies-list.component.css'
 })
-export class MoviesListComponent {
+export class MoviesListComponent implements OnInit{
+
+// Data
+  movies!:any[]; 
+
+  language!:string;
+
+  movieType!:string;
+
+  price!:number;
+
+  minprice!: number;
+
+  maxprice!:number;
+
+  constructor(private movieService:MovieService){
+
+    console.log('MoviesListComponent');
 
 
-  movies = [
-    {
-      title:"Tumbbad",
-    imgUrl:"https://assets-in.bmscdn.com/discovery-catalog/events/tr:w-400,h-600,bg-CCCCCC:w-400.0,h-660.0,cm-pad_resize,bg-000000,fo-top:l-image,i-discovery-catalog@@icons@@star-icon-202203010609.png,lx-24,ly-615,w-29,l-end:l-text,ie-OC40LzEwICAxMDAuNEsgVm90ZXM%3D,fs-29,co-FFFFFF,ly-612,lx-70,pa-8_0_0_0,l-end/et00079092-wzzsfeaaxh-portrait.jpg",
-    description:"Fantasy/Horror/Period"
-    },
-    {
-      title:"Meiyazhagan",
-      imgUrl:"https://assets-in.bmscdn.com/discovery-catalog/events/tr:w-400,h-600,bg-CCCCCC:w-400.0,h-660.0,cm-pad_resize,bg-000000,fo-top:l-image,i-discovery-catalog@@icons@@like_202006280402.png,lx-24,ly-617,w-29,l-end:l-text,ie-MTMuN0sgTGlrZXM%3D,fs-29,co-FFFFFF,ly-612,lx-70,pa-8_0_0_0,l-end/et00405427-jtaxncpkny-portrait.jpg",
-      description:"Comedy/Drama"
-    },
-    {
-      title:"The Greatest of All Time",
-      imgUrl:"https://assets-in.bmscdn.com/iedb/movies/images/mobile/thumbnail/xlarge/the-greatest-of-all-time-et00401439-1725014428.jpg",
-      description:"Action/Drama/Thriller"
-    },
-    {
-      title:"Rubber Pandhu",
-      imgUrl:"https://assets-in.bmscdn.com/iedb/movies/images/mobile/thumbnail/xlarge/lubber-pandhu-et00409924-1725002124.jpg",
-      description:"Comedy/Drama/Sports"
-    },
-    {
-      title:"Devara - Part 1",
-      imgUrl:"https://assets-in.bmscdn.com/discovery-catalog/events/tr:w-400,h-600,bg-CCCCCC:w-400.0,h-660.0,cm-pad_resize,bg-000000,fo-top:l-image,i-discovery-catalog@@icons@@like_202006280402.png,lx-24,ly-617,w-29,l-end:l-text,ie-ODA5LjhLIExpa2Vz,fs-29,co-FFFFFF,ly-612,lx-70,pa-8_0_0_0,l-end/et00310216-tluebxpafx-portrait.jpg",
-      description:"Action/Drama/Thriller"
-    },
-    {
-      title:"Hitler",
-      imgUrl:"https://assets-in.bmscdn.com/iedb/movies/images/mobile/thumbnail/xlarge/hitler-et00413125-1727093184.jpg",
-      description:"Action/Drama/Thriller"
-    },
-    {
-      title:"Joker: Folie a Deux",
-      imgUrl:"https://assets-in.bmscdn.com/iedb/movies/images/mobile/thumbnail/xlarge/joker-folie-a-deux-et00352820-1727168074.jpg",
-      description:"Action/Drama/Thriller"
+  }
+
+  ngOnInit(): void {
+    console.log("OnInit method called");
+    this.movies = this.movieService.getAllMovies();
+    console.log('movies',this.movies);
+  }
+
+
+    reset(){
+      this.movies = this.movieService.getAllMovies();
     }
-  ]
+
+   applyfillter(){
+
+      //  alert("Language : "  + this.language);
+      //   alert("MovieType : "  + this.movieType);
+      //   alert("MinPrice : " +this.minprice + "-" + this.maxprice);
+        
+         if(this.language){
+       this.movies = this.movies.filter(obj=> obj.language == this.language);
+      }
+
+      // if movietype is selected
+      if(this.movieType){
+      this.movies = this.movies.filter(obj=> obj.description.includes(this.movieType));
+    }
+          
+      // if price filter is applied
+      if(this.minprice && this.maxprice){
+        this.movies = this.movies.filter(obj=>  obj.price >=this.minprice && obj.price <= this.maxprice);
+      console.log('price filter');
+      console.table(this.movies);
+  
+      }
+
+   }
+
 } 
 
