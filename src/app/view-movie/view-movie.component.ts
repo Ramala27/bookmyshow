@@ -32,6 +32,14 @@ this.movieId = this.route.snapshot.params["id"];
     
   }
 
+  addToCart(movie:any){
+
+    localStorage.setItem("CARTS",JSON.stringify(movie));
+    alert("Added Items to Cart");
+    window.location.href="/cart";
+
+  }
+
 
 // Data
   movies = [
