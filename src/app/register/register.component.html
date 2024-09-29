@@ -1,1 +1,29 @@
-<p>register works!</p>
+<div class="container-fluid">
+    
+    <h4>Register</h4>
+
+<form (ngSubmit)="onSubmit()">
+
+ <div>
+     <label for="name">Name:</label>&nbsp;
+     <input type="" name="name" id="name" placeholder="Enter Your Name"
+      [(ngModel)]="name" required autofocus><br><br>
+  </div>
+
+<div>
+<label for="email">Email:</label>&nbsp;
+<input type="email" name="email" id="email" placeholder="Enter Your Email"
+[(ngModel)]="email" required><br><br>
+</div>
+
+<div>
+<label for="password">Password:</label>&nbsp;
+<input type="password" name="password" id="password" placeholder="Enter Your Password"
+[(ngModel)]="password" required><br><br>
+</div>
+
+<div>
+<button type="submit" class="btn btn-success">Submit</button>
+</div>
+</form>
+</div>

@@ -28,7 +28,12 @@ export class LoginComponent {
 
 //  if admin@gamil.com, passwrd:123 , valid login
 
-  if(this.email == "admin@gmail.com" && this.password == "pass123"){
+  // if(this.email == "admin@gmail.com" && this.password == "pass123"){
+const usersStr = localStorage.getItem("USERS");
+const users = usersStr != null ? JSON.parse(usersStr): [];
+const userExists = users.find((obj: any)=> obj.email == this.email && obj.password == this.password);
+
+if(userExists != null){
     alert("Successfully LoggedIn");
     localStorage.setItem("LOGGED_IN_USER" , "true");
     localStorage.setItem("EMAIL", this.email);
@@ -40,7 +45,7 @@ export class LoginComponent {
   else{
     alert("Invalid Login");
   }
-  
+
   }
 
 }
