@@ -71,7 +71,14 @@ export class MovieService {
     return this.movies;
   }
 
-  getMovieDetails(title:string){
+   getMovieById(id:number){
+
+      const movie = this.movies.find(obj=> obj.id);
+      return movie;
+
+   }
+
+  getMovieByTitle(title:string){
     const selectedMovie = this.movies.find(obj=> obj.title == title);
     return selectedMovie;
   }

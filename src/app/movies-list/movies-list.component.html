@@ -1,5 +1,6 @@
 
 <div class="container-fluid">
+  
     <h1>Movies</h1>
 
     
@@ -35,6 +36,7 @@
     <br>
 
     <div>
+      
       <label for="price">Price Range:</label>&nbsp;
       <input type="number" min="100" name="minprice" id="minprice" [(ngModel)]="minprice" placeholder="Enter min Price">
       <br><br>&nbsp;&nbsp;&nbsp;&nbsp;
@@ -45,6 +47,7 @@
     &nbsp;&nbsp; <button type="reset" class="btn btn-danger" (click)="reset()">Reset</button>
     </form>    
      </div>
+    
      <div class="col-8">
       <div class="row">
 
@@ -68,7 +71,7 @@
         
         
         
-          <a routerLink="{{movie.title}}" class="btn btn-primary">View</a>
+          <a routerLink="{{movie.id}}" class="btn btn-primary">View</a>
         </div>
       </div>
     

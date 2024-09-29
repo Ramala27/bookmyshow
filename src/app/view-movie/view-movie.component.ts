@@ -15,18 +15,21 @@ import { MovieService } from '../movie.service';
 export class ViewMovieComponent implements OnInit{
 
 
-movieName!:string;
+// movieName!:string;
+
+movieId!:number;
+
 movie: any;
 
 constructor(private route:ActivatedRoute, private movieservice:MovieService ){
    
-this.movieName = this.route.snapshot.params["id"];
+this.movieId = this.route.snapshot.params["id"];
 
 }
   ngOnInit(): void {
     // this.movie = this.movies.find(obj=> obj.title == this.movieName); 
-
-    this.movie =this.movieservice.getMovieDetails(this.movieName);
+    this.movie = this.movieservice.getMovieById(this.movieId);
+    
   }
 
 
