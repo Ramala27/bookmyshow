@@ -33,8 +33,17 @@ this.movieId = this.route.snapshot.params["id"];
   }
 
   addToCart(movie:any){
-
-    localStorage.setItem("CARTS",JSON.stringify(movie));
+    const cartItems = [];
+   const ticket = { 
+    "id":movie.id,
+    "title":movie.title,
+    "price":movie.price,
+    "imgUrl":movie.imgUrl,
+      numberoftickets:1
+   }
+    // cartItems.push(movie);re
+    cartItems.push(ticket);
+    localStorage.setItem("CART",JSON.stringify(cartItems));
     alert("Added Items to Cart");
     window.location.href="/cart";
 

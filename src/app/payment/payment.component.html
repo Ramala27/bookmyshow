@@ -1,0 +1,21 @@
+<h4>Payments</h4>
+
+<form (ngSubmit)="onSubmit()">
+<label for="payment">Type Of Payments:</label>
+<select>
+<option>COD</option>
+<option>GPay</option>
+<option>Paytm</option>
+<option>Cards Payments</option>
+</select><br><br>
+<label for="carddetails">Card Details:</label>&nbsp;
+<input type="text" name="card" id="card" placeholder="Rupay Card" [(ngModel)]="card" required autofocus>&nbsp;
+<input type="text" name="firstname" id="firstname" placeholder="First Name"[(ngModel)]="firstname">&nbsp;
+<input type="email" name="mailid" id="mailid" placeholder="Mail Id"[(ngModel)]="mailid">&nbsp;<br><br>
+<input type="number" name="cardnumber" id="cardnumber" placeholder="Card number"[(ngModel)]="cardnumber">&nbsp;
+<input type="date" name="expdate" id="expdate" placeholder="Exp Date"[(ngModel)]="expdate">&nbsp;
+<input type="number" name="cvvnum" id="cvvnum" placeholder="CVV Number"[(ngModel)]="cvvnum">&nbsp;<br><br>
+&nbsp;<button type="submit" class="btn btn-success" >Confirm Payment</button>
+&nbsp;<button type="reset" class="btn btn-danger" >Reset</button>
+</form>
+{{card}}
