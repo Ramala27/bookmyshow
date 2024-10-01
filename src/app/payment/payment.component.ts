@@ -19,6 +19,8 @@ export class PaymentComponent {
   cardnumber!: number;
   expdate!: Date;
   cvvnum!: number;
+  cashpayment!:string;
+  cardpayment!:string;
 
   constructor() {
     console.log('PaymentComponent');
@@ -34,7 +36,7 @@ export class PaymentComponent {
     } else if (this.cardnumber > 9999999999999) {
       alert('Invalid Card Number')
 
-    } else {
+          } else {
 
 
       const carddetails = {
@@ -47,7 +49,8 @@ export class PaymentComponent {
       };
       console.log("carddetails");
       localStorage.setItem('carddetails', JSON.stringify(carddetails));
-      alert('Payment Success');
+      alert('Check Validate Payments');
+
     }
   }
 
