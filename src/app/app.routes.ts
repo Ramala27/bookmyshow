@@ -7,6 +7,7 @@ import { RegisterComponent } from './register/register.component';
 import { CartComponent } from './cart/cart.component';
 import { PaymentComponent } from './payment/payment.component';
 import { CashpaymentComponent } from './cashpayment/cashpayment.component';
+import { Register2Component } from './register2/register2.component';
 
 
 export const routes: Routes = [
@@ -15,6 +16,7 @@ export const routes: Routes = [
     {path:'movies/:id',component:ViewMovieComponent},
     {path:'login',component:LoginComponent},
     {path:'register',component:RegisterComponent},
+    {path:'register2',component:Register2Component},
     {path:'cart',component:CartComponent},
     {path:'payment',component:PaymentComponent},
     {path:'cashpayment',component:CashpaymentComponent},

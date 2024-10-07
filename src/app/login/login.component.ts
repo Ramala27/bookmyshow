@@ -1,12 +1,13 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { ToastrService } from 'ngx-toastr';
 
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [CommonModule,FormsModule],
+  imports: [CommonModule,FormsModule,],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css'
 })
@@ -15,7 +16,7 @@ export class LoginComponent {
   email!:string;
   password!:string;
 
-  constructor(){
+  constructor(private readonly toastr:ToastrService){
 
      console.log('LoginComponent');
 
@@ -24,6 +25,7 @@ export class LoginComponent {
 
   onSubmit(){
     console.log('Form Is Submitted');
+    this.toastr.success("form submitted")
     console.log('Email:', this.email, 'Password:', + this.password);
 
 //  if admin@gamil.com, passwrd:123 , valid login
@@ -47,7 +49,8 @@ users = [];
 const userExists = users.find((obj: any)=> obj.email == this.email && obj.password == this.password);
 
 if(userExists != null){
-    alert("Successfully LoggedIn");
+    // alert("Successfully LoggedIn");
+    this.toastr.success("Successfully Loggedin"); 
     localStorage.setItem("LOGGED_IN_USER" , "true");
     localStorage.setItem("EMAIL", this.email);
 
@@ -56,7 +59,8 @@ if(userExists != null){
   }
 
   else{
-    alert("Invalid Login");
+    // alert("Invalid Login");
+    this.toastr.error("Invalid Login Credentials");
   }
 
   }
